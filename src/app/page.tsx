@@ -11,7 +11,7 @@ export default function Home() {
             <a href="#process">Process</a>
             <a href="#pricing">Pricing</a>
             <a href="#about">About</a>
-            <a href="#contact" className="btn-primary">
+            <a href="https://calendly.com/lucasmunro0402/30min" target="_blank" rel="noopener noreferrer" className="btn-primary">
               Get in touch &rarr;
             </a>
           </div>
@@ -34,7 +34,7 @@ export default function Home() {
           right solution — not a bigger team.
         </p>
         <div className="hero-actions">
-          <a href="#contact" className="btn-primary">
+          <a href="https://calendly.com/lucasmunro0402/30min" target="_blank" rel="noopener noreferrer" className="btn-primary">
             Start a project &rarr;
           </a>
           <a href="#solutions" className="btn-secondary">
