@@ -287,7 +287,9 @@ export default function Home() {
               <li>Full source code handoff</li>
             </ul>
             <a
-              href="#contact"
+              href="https://calendly.com/lucasmunro0402/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-secondary"
               style={{ width: "100%", justifyContent: "center" }}
             >
@@ -308,7 +310,9 @@ export default function Home() {
               <li>Deployment &amp; QA included</li>
             </ul>
             <a
-              href="#contact"
+              href="https://calendly.com/lucasmunro0402/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary"
               style={{ width: "100%", justifyContent: "center" }}
             >
@@ -329,7 +333,9 @@ export default function Home() {
               <li>Full ownership, no lock-in</li>
             </ul>
             <a
-              href="#contact"
+              href="https://calendly.com/lucasmunro0402/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-secondary"
               style={{ width: "100%", justifyContent: "center" }}
             >
