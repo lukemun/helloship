@@ -1,3 +1,5 @@
+import { ContactForm } from "@/components/contact-form";
+
 export default function Home() {
   return (
     <>
@@ -110,10 +112,10 @@ export default function Home() {
                 <path d="M12 20V10M18 20V4M6 20v-4" />
               </svg>
             </div>
-            <h3>Internal Tools</h3>
+            <h3>AI Agents</h3>
             <p>
-              Dashboards, admin panels, and custom software that replaces the
-              spreadsheets and duct tape holding your operations together.
+              Domain-specific agents that monitor, triage, and execute repeat
+              workflows for support, sales, and operations teams.
             </p>
           </div>
           <div className="service-card">
@@ -369,7 +371,7 @@ export default function Home() {
               <div className="client-list">
                 <span className="client-tag">Full-stack development</span>
                 <span className="client-tag">React Native</span>
-                <span className="client-tag">AI &amp; automations</span>
+                <span className="client-tag">AI agents &amp; automations</span>
                 <span className="client-tag">System integrations</span>
               </div>
             </div>
@@ -385,11 +387,7 @@ export default function Home() {
               Tell us what your business needs. We&apos;ll get back to you
               within 24 hours with a plan.
             </p>
-            <div className="cta-actions">
-              <a href="mailto:hello@helloship.ai" className="btn-primary">
-                hello@helloship.ai &rarr;
-              </a>
-            </div>
+            <ContactForm />
           </div>
         </div>
       </div>
