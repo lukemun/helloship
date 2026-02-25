@@ -72,19 +72,30 @@ export async function POST(request: NextRequest) {
     payload.problem,
   ];
 
-  const resendResponse = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${resendApiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: fromEmail,
-      to: [toEmail],
-      reply_to: payload.email,
-      subject: `New lead from ${payload.name} (${payload.company})`,
-      text: lines.join("\n"),
-    }),
+  async function sendEmail(emailPayload: {
+    to: string[];
+    subject: string;
+    text: string;
+    reply_to?: string;
+  }) {
+    return fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${resendApiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: fromEmail,
+        ...emailPayload,
+      }),
+    });
+  }
+
+  const resendResponse = await sendEmail({
+    to: [toEmail],
+    reply_to: payload.email,
+    subject: `New lead from ${payload.name} (${payload.company})`,
+    text: lines.join("\n"),
   });
 
   if (!resendResponse.ok) {
@@ -93,6 +104,35 @@ export async function POST(request: NextRequest) {
       { error: `Email provider error: ${responseText}` },
       { status: 502 }
     );
+  }
+
+  const confirmationLines = [
+    `Hi ${payload.name},`,
+    "",
+    "Thanks for reaching out to Helloship. We got your details and will reply within 24 hours.",
+    "",
+    "Here is what you submitted:",
+    `Company: ${payload.company}`,
+    `Issue: ${payload.problem}`,
+    "",
+    "If you want to add more context, just reply to this email.",
+    "",
+    "Luke",
+    "Helloship",
+  ];
+
+  try {
+    const confirmationResponse = await sendEmail({
+      to: [payload.email],
+      reply_to: toEmail,
+      subject: "We got your request - Helloship",
+      text: confirmationLines.join("\n"),
+    });
+    if (!confirmationResponse.ok) {
+      await confirmationResponse.text();
+    }
+  } catch {
+    // Do not block lead capture if the confirmation email fails.
   }
 
   return NextResponse.json({ ok: true });
