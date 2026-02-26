@@ -1,10 +1,8 @@
 import { ContactForm } from "@/components/contact-form";
-import { DoorEntryOverlay } from "@/components/door-entry-overlay";
 
 export default function Home() {
   return (
     <>
-      <DoorEntryOverlay />
       <nav>
         <div className="nav-inner">
           <a href="#" className="logo">
