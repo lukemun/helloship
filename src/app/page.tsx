@@ -1,4 +1,5 @@
 import { ContactForm } from "@/components/contact-form";
+import { HeroShipIllustration } from "@/components/hero-ship-illustration";
 
 export default function Home() {
   return (
@@ -21,27 +22,32 @@ export default function Home() {
       </nav>
 
       <section className="hero">
-        <div className="hero-label">
-          <span className="dot"></span>
-          Available for new projects
-        </div>
-        <h1>
-          Real solutions.
-          <br />
-          <span>Shipped fast.</span>
-        </h1>
-        <p>
-          Helloship is an AI-powered development studio that builds custom
-          software, integrations, and automations for businesses that need the
-          right solution — not a bigger team.
-        </p>
-        <div className="hero-actions">
-          <a href="https://calendly.com/lucasmunro0402/30min" target="_blank" rel="noopener noreferrer" className="btn-primary">
-            Start a project &rarr;
-          </a>
-          <a href="#solutions" className="btn-secondary">
-            What we solve
-          </a>
+        <div className="hero-layout">
+          <div className="hero-copy">
+            <div className="hero-label">
+              <span className="dot"></span>
+              Available for new projects
+            </div>
+            <h1>
+              Real solutions.
+              <br />
+              <span>Shipped fast.</span>
+            </h1>
+            <p>
+              Helloship is an AI-powered development studio that builds custom
+              software, integrations, and automations for businesses that need the
+              right solution — not a bigger team.
+            </p>
+            <div className="hero-actions">
+              <a href="https://calendly.com/lucasmunro0402/30min" target="_blank" rel="noopener noreferrer" className="btn-primary">
+                Start a project &rarr;
+              </a>
+              <a href="#solutions" className="btn-secondary">
+                What we solve
+              </a>
+            </div>
+          </div>
+          <HeroShipIllustration />
         </div>
       </section>
 
