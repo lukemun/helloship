@@ -1,4 +1,5 @@
 import { ContactForm } from "@/components/contact-form";
+import { HelloDoorWord } from "@/components/hello-door-word";
 
 export default function Home() {
   return (
@@ -25,11 +26,7 @@ export default function Home() {
           <span className="dot"></span>
           Available for new projects
         </div>
-        <h1>
-          Real solutions.
-          <br />
-          <span>Shipped fast.</span>
-        </h1>
+        <HelloDoorWord />
         <p>
           Helloship is an AI-powered development studio that builds custom
           software, integrations, and automations for businesses that need the
