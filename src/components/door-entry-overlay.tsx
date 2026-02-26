@@ -58,11 +58,15 @@ export function DoorEntryOverlay() {
   useEffect(() => {
     const sessionKey = "helloship-door-seen";
     const alreadySeen = sessionStorage.getItem(sessionKey) === "1";
+    const shouldEnable = !alreadySeen;
     if (!alreadySeen) {
       sessionStorage.setItem(sessionKey, "1");
-      setEnabled(true);
     }
-    setReady(true);
+    const rafId = requestAnimationFrame(() => {
+      setEnabled(shouldEnable);
+      setReady(true);
+    });
+    return () => cancelAnimationFrame(rafId);
   }, []);
 
   useEffect(() => {
