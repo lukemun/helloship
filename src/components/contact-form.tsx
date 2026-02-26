@@ -10,10 +10,11 @@ export function ContactForm() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const form = event.currentTarget;
     setStatus("submitting");
     setMessage("");
 
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(form);
     const payload = {
       name: String(formData.get("name") ?? "").trim(),
       email: String(formData.get("email") ?? "").trim(),
@@ -36,7 +37,7 @@ export function ContactForm() {
 
       setStatus("success");
       setMessage("Thanks. We got it and will reply within 24 hours.");
-      event.currentTarget.reset();
+      form.reset();
     } catch (error) {
       setStatus("error");
       setMessage(error instanceof Error ? error.message : "Unable to submit.");
