@@ -18,6 +18,8 @@ function buildExtrusion(color: string, layers: number) {
 }
 
 export function DoorEntryOverlay() {
+  const [ready, setReady] = useState(false);
+  const [enabled, setEnabled] = useState(false);
   const [pressedKeys, setPressedKeys] = useState<Set<number>>(new Set());
   const [inkSpots, setInkSpots] = useState<{ x: number; y: number; color: string }[]>([]);
   const [lettersSinking, setLettersSinking] = useState(false);
@@ -52,6 +54,16 @@ export function DoorEntryOverlay() {
   }, []);
 
   const allPressed = pressedKeys.size === LETTERS.length;
+
+  useEffect(() => {
+    const sessionKey = "helloship-door-seen";
+    const alreadySeen = sessionStorage.getItem(sessionKey) === "1";
+    if (!alreadySeen) {
+      sessionStorage.setItem(sessionKey, "1");
+      setEnabled(true);
+    }
+    setReady(true);
+  }, []);
 
   useEffect(() => {
     if (!allPressed) return;
@@ -126,7 +138,7 @@ export function DoorEntryOverlay() {
     };
   }, [allPressed, inkSpots.length]);
 
-  if (done) return null;
+  if (!ready || !enabled || done) return null;
 
   return (
     <div className="fixed inset-0 z-[300] flex items-center justify-center bg-white">
