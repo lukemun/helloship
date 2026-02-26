@@ -179,37 +179,6 @@ nav {
   font-weight: 600;
 }
 
-.hello-door {
-  display: inline-flex;
-  align-items: center;
-  gap: clamp(8px, 1.2vw, 14px);
-  margin-bottom: 20px;
-  line-height: 1;
-  user-select: none;
-}
-
-.hello-door-letter {
-  display: inline-block;
-  font-size: clamp(40px, 10vw, 106px);
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  color: #fff;
-  -webkit-text-stroke: 1px #0a0a0a;
-  text-shadow: var(--shadow-full);
-  transform: translate(0, 0);
-  transition: transform 160ms ease, text-shadow 160ms ease;
-}
-
-.hello-door-letter:hover {
-  text-shadow: var(--shadow-half);
-  transform: translate(-3px, 3px);
-}
-
-.hello-door-letter:active {
-  text-shadow: none;
-  transform: translate(-6px, 6px);
-}
-
 .hero p {
   font-size: 18px;
   color: var(--text-secondary);
@@ -652,14 +621,6 @@ footer {
   .hero-actions { flex-direction: column; }
   .hero-actions .btn-primary,
   .hero-actions .btn-secondary { width: 100%; justify-content: center; }
-  .hello-door {
-    gap: 6px;
-    margin-bottom: 16px;
-  }
-  .hello-door-letter {
-    font-size: clamp(34px, 12vw, 60px);
-    -webkit-text-stroke: 0.8px #0a0a0a;
-  }
   .cta-actions { flex-direction: column; align-items: center; }
   .contact-grid { grid-template-columns: 1fr; }
   .contact-form .btn-primary { width: 100%; justify-content: center; }
